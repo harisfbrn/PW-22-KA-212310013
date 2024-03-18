@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        .tombol_contact_us{
+     position: fixed;right: 10px;bottom: 44px;
+   }
+   .tombol_contact_us img{
+     height: 44px;width: auto;
+   }
+    </style>
+</head>
+<body>
+    <h1>Kontak</h1>
+    <form action="login.php" method="POST">
+        <fieldset>
+        <legend>Login</legend>
+            <label>Fullname :</label>
+            <input type="Fullname" name="Fullname" placeholder="M.Haris.F" />
+        </p>
+        <p>
+            <label>Email :</label>
+            <input type="email" name="Email" placeholder="212310013@student.ibik.ac.id">
+        </p>
+        <p>
+            <label>Gender</label>
+            <label><input type="radio" name="Gender" value="laki-laki"/> laki-laki</label>
+            <label><input type="radio" name="Gender" value="perempuan"/> perempuan</label>
+        </p>
+        <p>
+            <label>Address</label>
+            <textarea name="Address"></textarea>
+        </p>
+        <p>
+            <label><input type="checkbox" name="remember" value="remember" /> Remember me</label>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Save" />
+            <input type="reset" name="reset" value="Reset">
+        </p>
+    
+    <a href="https://wa.me/089516020091" class="tombol_contact_us"><img src="whatsapp.png"></a>
+</body>
+</html>
