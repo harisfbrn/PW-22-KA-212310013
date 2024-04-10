@@ -1,0 +1,71 @@
+span.date{
+    font-size: small;
+}
+
+hr.style-one {
+    border: 0;
+    height: 2px;
+    background: #000000;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    align-content: justify;
+    width: 800px;
+    height: 400px;
+}
+
+p{
+    text-align: justify;
+}
+
+span.text1{
+    background-color: aqua;
+}
+
+span.text2{
+    background-color: aqua;
+}
+
+span.text3{
+    background-color: rgb(38, 237, 38);
+}
+
+span.text4{
+    font-family:'Courier New', Courier, monospace;
+}
+
+span.text5{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(225, 48, 225);
+}
+
+table, th, td {
+    border: 2px solid rgb(58, 129, 250);
+    border-collapse: collapse;
+}
+
+th {
+    background-color: rgb(39, 89, 175);
+}
+
+th,td {
+    padding-top: auto 20px;
+    padding-bottom: auto 20px;
+    padding-left: auto 30px;
+    padding-right: auto 40px;
+}
+
+table {
+    width: 70%;
+    margin-left: 50px;
+}
+
+div.icon {
+    word-spacing: 15px;
+    margin-left: 160px;
+    margin-top: -40px;
+    height: 40px;
+}
