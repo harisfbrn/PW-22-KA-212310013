@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Data Diri</title>
+</head>
+<body>
+    <h1>Formulir Data Diri</h1>
+    <form onsubmit="return kirimData(this)">
+        <label for="nim">NIM:</label>
+        <input type="text" id="nim" name="nim" required>
+        <br>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+        <br>
+        <label for="jenis_kelamin">Jenis Kelamin:</label>
+        <select id="jenis_kelamin" name="jenis_kelamin" required>
+            <option value="">Pilih...</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select>
+        <br>
+        <label for="agama">Agama:</label>
+        <input type="text" id="agama" name="agama" required>
+        <br>
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="">Pilih...</option>
+            <option value="Mahasiswa">Mahasiswa</option>
+            <option value="Dosen">Dosen</option>
+            <option value="Karyawan">Karyawan</option>
+        </select>
+        <br>
+        <label for="jurusan">Jurusan:</label>
+        <input type="text" id="jurusan" name="jurusan" required>
+        <br>
+        <label for="komentar">Komentar:</label>
+        <textarea id="komentar" name="komentar" rows="5" cols="30"></textarea>
+        <br>
+        <button type="submit">Kirim</button>
+    </form>
+    <br>
+    <div id="output"></div>
+
+    <script>
+        function kirimData(form) {
+            // Mendapatkan nilai dari form
+            const nim = form.nim.value;
+            const nama = form.nama.value;
+            const jenisKelamin = form.jenis_kelamin.value;
+            const agama = form.agama.value;
+            const status = form.status.value;
+            const jurusan = form.jurusan.value;
+            const komentar = form.komentar.value;
+
+            // Menampilkan data di output
+            const output = document.getElementById("output");
+            output.innerHTML = `
+                <h2>Data Diri</h2>
+                <ul>
+                    <li>NIM: ${nim}</li>
+                    <li>Nama: ${nama}</li>
+                    <li>Jenis Kelamin: ${jenisKelamin}</li>
+                    <li>Agama: ${agama}</li>
+                    <li>Status: ${status}</li>
+                    <li>Jurusan: ${jurusan}</li>
+                    <li>Komentar: ${komentar}</li>
+                </ul>
+            `;
+
+            // Mencegah formulir untuk di-submit
+            return false;
+        }
+    </script>
+</body>
+</html>

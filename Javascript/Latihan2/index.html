@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input Pemesanan Tiket IBIK Abadi</title>
+</head>
+<body>
+    <h1>Form Input Pemesanan Tiket IBIK Abadi</h1>
+    <form onsubmit="hitungTotal()">
+        <label for="nama">Nama Pemesan:</label>
+        <input type="text" id="nama" name="nama" required>
+        <br>
+        <label for="tujuan">Tujuan:</label>
+        <select id="tujuan" name="tujuan" required>
+            <option value="">-- Pilih Tujuan --</option>
+            <option value="jakarta">Jakarta</option>
+            <option value="solo">Solo</option>
+            <option value="surabaya">Surabaya</option>
+        </select>
+        <br>
+        <label for="kelas">Kelas:</label>
+        <select id="kelas" name="kelas" required>
+            <option value="">-- Pilih Kelas --</option>
+            <option value="eksekutif">Eksekutif</option>
+            <option value="bisnis">Bisnis</option>
+            <option value="ekonomi">Ekonomi</option>
+        </select>
+        <br>
+        <label for="banyak_tiket">Banyak Tiket:</label>
+        <input type="number" id="banyak_tiket" name="banyak_tiket" min="1" required>
+        <br>
+        <label for="member">Member Travel Bintang Abadi?</label>
+        <input type="checkbox" id="member" name="member">
+        <br>
+        <br>
+        <button type="submit">Hitung Total</button>
+        <br>
+        <br>
+        <div id="hasil">
+            </div>
+    </form>
+    <script>
+        function hitungTotal() {
+            // Mendapatkan nilai dari form
+            const nama = document.getElementById('nama').value;
+            const tujuan = document.getElementById('tujuan').value;
+            const kelas = document.getElementById('kelas').value;
+            const banyakTiket = parseInt(document.getElementById('banyak_tiket').value);
+            const member = document.getElementById('member').checked;
+
+            // Menentukan harga tiket berdasarkan tujuan dan kelas
+            let hargaTiket = 0;
+            if (tujuan === 'jakarta') {
+                switch (kelas) {
+                    case 'eksekutif':
+                        hargaTiket = 70000;
+                        break;
+                    case 'bisnis':
+                        hargaTiket = 40000;
+                        break;
+                    case 'ekonomi':
+                        hargaTiket = 10000;
+                        break;
+                }
+            } else if (tujuan === 'solo') {
+                switch (kelas) {
+                    case 'eksekutif':
+                        hargaTiket = 80000;
+                        break;
+                    case 'bisnis':
+                        hargaTiket = 50000;
+                        break;
+                    case 'ekonomi':
+                        hargaTiket = 20000;
+                        break;
+                }
+            } else if (tujuan === 'surabaya') {
+                switch (kelas) {
+                    case 'eksekutif':
+                        hargaTiket = 90000;
+                        break;
+                    case 'bisnis':
+                        hargaTiket = 60000;
+                        break;
+                    case 'ekonomi':
+                        hargaTiket = 30000;
+                        break;
+                }
+            }
+
+            // Menghitung subtotala
+            const subTotal = hargaTiket * banyakTiket;
+
+            // Menghitung diskon
+            let diskon = 0;
+            if (member) {
+                diskon = subTotal * 0.1;
+            }
+
+            // Menghitung total bayar
+            const totalBayar = subTotal - diskon;
+
+            // Menampilkan hasil perhitungan di elemen "hasil"
+            const hasil = document.getElementById('hasil');
+            hasil.innerHTML = `
+            <h2>Hasil Perhitungan</h2>
+            <p>
