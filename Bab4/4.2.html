@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Akar Persamaan Kuadrat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            margin: 5px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Masukkan Koefisien Persamaan Kuadrat</h2>
+    <form id="formKuadrat">
+        <label for="inputA">Masukkan koefisien a:</label>
+        <input type="number" id="inputA" required><br><br>
+        
+        <label for="inputB">Masukkan koefisien b:</label>
+        <input type="number" id="inputB" required><br><br>
+        
+        <label for="inputC">Masukkan koefisien c:</label>
+        <input type="number" id="inputC" required><br><br>
+        
+        <button type="button" onclick="hitungAkar()">Hitung Akar</button>
+    </form>
+    
+    <div id="hasilAkar"></div>
+
+    <script>
+        function hitungAkar() {
+            // Ambil nilai a, b, dan c dari input
+            var a = parseFloat(document.getElementById('inputA').value);
+            var b = parseFloat(document.getElementById('inputB').value);
+            var c = parseFloat(document.getElementById('inputC').value);
+
+            // Hitung diskriminan
+            var D = b * b - 4 * a * c;
+
+            // Inisialisasi variabel untuk menyimpan akar-akar
+            var x1, x2;
+
+            // Berdasarkan nilai diskriminan, hitung akar-akarnya
+            if (D > 0) {
+                x1 = (-b + Math.sqrt(D)) / (2 * a);
+                x2 = (-b - Math.sqrt(D)) / (2 * a);
+                document.getElementById('hasilAkar').innerHTML = "Persamaan memiliki dua akar berbeda: x1 = " + x1 + ", x2 = " + x2;
+            } else if (D === 0) {
+                x1 = x2 = -b / (2 * a);
+                document.getElementById('hasilAkar').innerHTML = "Persamaan memiliki satu akar ganda: x1 = x2 = " + x1;
+            } else {
+                document.getElementById('hasilAkar').innerHTML = "Persamaan tidak memiliki akar real (akar-akar kompleks)";
+            }
+        }
+    </script>
+</body>
+</html>
